@@ -6,7 +6,7 @@ public class ChessGrid {
 	public String getChessType(){		
 		if(whoOn == null)
 		{
-			return "*";
+			return "¤f";
 			
 		}else{
 			

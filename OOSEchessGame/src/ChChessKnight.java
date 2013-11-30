@@ -11,5 +11,15 @@ public class ChChessKnight extends  ChineseChess{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getChessType(){
+		
+		if(super.getChessType() =="r")
+		{
+			return "ØX";
+		}else{
+			return "°¨";
+		}
+	}
 
 }

@@ -3,8 +3,9 @@ public class ChChessKing extends  ChineseChess {
 
 
 	ChChessKing(String chessType, Player owner) {
+		
 		super(chessType, owner);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
@@ -13,5 +14,15 @@ public class ChChessKing extends  ChineseChess {
 		return null;
 	}
 	
-
+	@Override
+	public String getChessType(){
+		
+		if(super.getChessType() =="r")
+		{
+			return "«Ó";
+		}else{
+			return "±N";
+		}
+	}
+	
 }

@@ -11,5 +11,16 @@ public class ChChessAdvisor extends  ChineseChess{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public String getChessType(){
+		
+		if(super.getChessType() =="r")
+		{
+			return "¥K";
+		}else{
+			return "¤h";
+		}
+	}
 
 }

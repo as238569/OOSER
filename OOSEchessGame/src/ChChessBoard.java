@@ -37,22 +37,22 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 		
 
 		
-		super.setChess(0,9,new ChChessRook("b",p1)       );
-		super.setChess(1,9,new ChChessKnight("b",p1)     );
-		super.setChess(2,9,new ChChessElephant("b",p1)   );
-		super.setChess(3,9,new ChChessAdvisor("b",p1)    );
-		super.setChess(4,9,new ChChessKing("b",p1)       );
-		super.setChess(5,9,new ChChessAdvisor("b",p1)    );
-		super.setChess(6,9,new ChChessElephant("b",p1)   );
-		super.setChess(7,9,new ChChessKnight("b",p1)     );
-		super.setChess(8,9,new ChChessRook("b",p1)       );
-		super.setChess(1,7,new ChChessCannon("b",p1)     );
-		super.setChess(7,7,new ChChessCannon("b",p1)     );
-		super.setChess(0,6,new ChChessPawn("b",p1)    );
-		super.setChess(2,6,new ChChessPawn("b",p1)    );
-		super.setChess(4,6,new ChChessPawn("b",p1)    );
-		super.setChess(6,6,new ChChessPawn("b",p1)    );
-		super.setChess(8,6,new ChChessPawn("b",p1)    );
+		super.setChess(0,9,new ChChessRook("b",p2)       );
+		super.setChess(1,9,new ChChessKnight("b",p2)     );
+		super.setChess(2,9,new ChChessElephant("b",p2)   );
+		super.setChess(3,9,new ChChessAdvisor("b",p2)    );
+		super.setChess(4,9,new ChChessKing("b",p2)       );
+		super.setChess(5,9,new ChChessAdvisor("b",p2)    );
+		super.setChess(6,9,new ChChessElephant("b",p2)   );
+		super.setChess(7,9,new ChChessKnight("b",p2)     );
+		super.setChess(8,9,new ChChessRook("b",p2)       );
+		super.setChess(1,7,new ChChessCannon("b",p2)     );
+		super.setChess(7,7,new ChChessCannon("b",p2)     );
+		super.setChess(0,6,new ChChessPawn("b",p2)    );
+		super.setChess(2,6,new ChChessPawn("b",p2)    );
+		super.setChess(4,6,new ChChessPawn("b",p2)    );
+		super.setChess(6,6,new ChChessPawn("b",p2)    );
+		super.setChess(8,6,new ChChessPawn("b",p2)    );
 		
 		
 	}

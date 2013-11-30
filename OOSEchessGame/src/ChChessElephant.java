@@ -12,4 +12,14 @@ public class ChChessElephant extends  ChineseChess{
 		return null;
 	}
 
+	@Override
+	public String getChessType(){
+		
+		if(super.getChessType() =="r")
+		{
+			return "¬Û";
+		}else{
+			return "¶H";
+		}
+	}
 }

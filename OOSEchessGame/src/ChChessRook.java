@@ -11,5 +11,15 @@ public class ChChessRook extends  ChineseChess{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	public String getChessType(){
+		
+		if(super.getChessType() =="r")
+		{
+			return "俥";
+		}else{
+			return "車";
+		}
+	}
 }
