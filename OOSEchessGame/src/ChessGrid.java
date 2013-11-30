@@ -2,6 +2,18 @@ public class ChessGrid {
 
 	private Chess whoOn;	
 	
+	
+	public String getChessType(){		
+		if(whoOn == null)
+		{
+			return "*";
+			
+		}else{
+			
+			return whoOn.getChessType();
+		}
+							
+	}	
 
 	public Chess getChess(){		
 		
@@ -14,6 +26,7 @@ public class ChessGrid {
 	}
 	
 	public void removeChess(){
+		
 		whoOn = null;		
 	}
 
