@@ -2,9 +2,8 @@
 public class ChChessKing extends  ChineseChess {
 
 
-	ChChessKing(String chessType, Player owner) {
-		
-		super(chessType, owner);
+	ChChessKing(String chessType,Player owner) {
+		super(chessType, owner );
 
 	}
 

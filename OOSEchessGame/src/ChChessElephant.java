@@ -1,8 +1,8 @@
 
 public class ChChessElephant extends  ChineseChess{
 
-	ChChessElephant(String chessType, Player owner) {
-		super(chessType, owner);
+	ChChessElephant(String chessType,Player owner) {
+		super(chessType, owner );
 		// TODO Auto-generated constructor stub
 	}
 

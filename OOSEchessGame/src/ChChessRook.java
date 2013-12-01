@@ -1,8 +1,8 @@
 
 public class ChChessRook extends  ChineseChess{
 
-	ChChessRook(String chessType, Player owner) {
-		super(chessType, owner);
+	ChChessRook(String chessType,Player owner) {
+		super(chessType, owner );
 		// TODO Auto-generated constructor stub
 	}
 

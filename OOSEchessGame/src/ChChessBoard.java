@@ -12,9 +12,9 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 	
 	public void moveChess(int oldAxisX , int oldAxisY , int newAxisX , int newAxisY ){		
        
-		Chess c = super.getChess(oldAxisX,oldAxisY);        
-		super.setChess(newAxisX,newAxisY,c);
-		super.removeChess(oldAxisX,oldAxisY);	
+		Chess c = super.getChess(oldAxisX,oldAxisY);
+		super.removeChess(oldAxisX,oldAxisY);
+		super.setChess(newAxisX,newAxisY,c);	
 		
 	}
 	
@@ -22,8 +22,8 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 	@Override
 	public void newGameFactory(Player p1, Player p2) {
 		
-		super.setChess(0,0,new ChChessRook("r",p1)       );
-		super.setChess(1,0,new ChChessKnight("r",p1)     );
+	    super.setChess(0,0,new ChChessRook("r",p1)       );
+		super.setChess(1,0,new ChChessKnight("r",p1)     );	
 		super.setChess(2,0,new ChChessElephant("r",p1)   );
 		super.setChess(3,0,new ChChessAdvisor("r",p1)    );
 		super.setChess(4,0,new ChChessKing("r",p1)       );
@@ -31,6 +31,7 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 		super.setChess(6,0,new ChChessElephant("r",p1)   );
 		super.setChess(7,0,new ChChessKnight("r",p1)     );
 		super.setChess(8,0,new ChChessRook("r",p1)       );
+		
 		super.setChess(1,2,new ChChessCannon("r",p1)     );
 		super.setChess(7,2,new ChChessCannon("r",p1)     );
 		super.setChess(0,3,new ChChessPawn("r",p1)    );

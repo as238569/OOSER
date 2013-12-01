@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -56,20 +57,21 @@ public class GUIdemo2 extends JFrame {
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(282)
-					.addComponent(ChessBoard, GroupLayout.PREFERRED_SIZE, 551, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(385, Short.MAX_VALUE))
+					.addGap(354)
+					.addComponent(ChessBoard, GroupLayout.PREFERRED_SIZE, 526, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(384, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(47)
-					.addComponent(ChessBoard, GroupLayout.PREFERRED_SIZE, 599, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(46, Short.MAX_VALUE))
+					.addGap(53)
+					.addComponent(ChessBoard, GroupLayout.PREFERRED_SIZE, 578, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(61, Short.MAX_VALUE))
 		);
-		ChessBoard.setLayout(new GridLayout(1, 0, 0, 0));
+		//ChessBoard.setLayout(new GridLayout(10, 9, 0, 0));
 		panel.setLayout(gl_panel);
 		
 		((ChChessBoard) ChessBoard).newGameFactory(new Player("123"),new Player("321"));
+		
 	}
 }

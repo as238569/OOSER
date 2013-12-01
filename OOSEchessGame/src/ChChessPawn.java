@@ -1,7 +1,7 @@
 
 public class ChChessPawn extends  ChineseChess{
 
-	ChChessPawn(String chessType, Player owner) {
+	ChChessPawn(String chessType,Player owner) {
 		super(chessType, owner);
 		// TODO Auto-generated constructor stub
 	}
