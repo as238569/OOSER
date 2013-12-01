@@ -1,15 +1,21 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
-abstract public class ChessBoard {
+abstract public class ChessBoard extends JPanel implements MouseListener {
 	
+
 	private ChessGrid[][] board;
-	int maxX;
-	int maxY;
+	private int maxX,maxY;
+	protected Image boardImg;
+
+	
 	
 	ChessBoard(int maxX,int maxY){
 		this.maxX = maxX;
 		this.maxY = maxY;
-		board = new ChessGrid[maxX][maxY];
-		
+
+		board = new ChessGrid[maxX][maxY];		
 		
 		for(int x=0;x<maxX;x++)
 		{
@@ -34,6 +40,13 @@ abstract public class ChessBoard {
 		board[axisX][axisY].removeChess();		
 	}
 	
+	 public void paintComponent(Graphics g) {
+		 
+		 super.paintComponent(g);		 
+		 Image boardImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("ChChessBroad.jpg"));			 
+		 g.drawImage(boardImg, 0, 0, null);
+	 }
+	 
 	public String getTotalInfo(){
 		
 		String boardInfo = new String();

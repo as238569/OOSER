@@ -1,10 +1,14 @@
+import java.awt.event.MouseEvent;
+
 
 public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 	
 	
+	
 	public ChChessBoard(){
-		super(9,10);
-	}
+		super(9,10);		
+		
+	}	
 	
 	public void moveChess(int oldAxisX , int oldAxisY , int newAxisX , int newAxisY ){		
        
@@ -54,6 +58,36 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 		super.setChess(6,6,new ChChessPawn("b",p2)    );
 		super.setChess(8,6,new ChChessPawn("b",p2)    );
 		
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 
