@@ -1,21 +1,23 @@
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 	
 	
+	int clickStap ;
+	ChessGrid selectGrid;
 	
 	public ChChessBoard(){
-		super(9,10);		
-		
+		super(9,10);			
 	}	
 	
-	public void moveChess(int oldAxisX , int oldAxisY , int newAxisX , int newAxisY ){		
-       
-		Chess c = super.getChess(oldAxisX,oldAxisY);
-		super.removeChess(oldAxisX,oldAxisY);
-		super.setChess(newAxisX,newAxisY,c);	
+	public void moveChess(ChessGrid oldGrid, ChessGrid newGrid ){		
 		
+        Chess c = oldGrid.getChess();
+        oldGrid.removeChess();
+        newGrid.removeChess();
+		newGrid.setChess(c);
 	}
 	
 
@@ -61,12 +63,65 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 		
 		
 	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseClicked(MouseEvent e) {//主要事件 程序
 		
-	}
+		Object obj = e.getSource();
+		System.out.println("Click");
+		
+		if(obj instanceof ChessGrid)
+		{		
+			
+			ChineseChess ccg = (ChineseChess) ((ChessGrid) obj).getChess();
+			
+			if( clickStap == 1 )
+			{
+				boolean inTheRange = true; // if relly work set true
+				
+			 /* ChessGrid infor[] = ccg.getMovableRange(this);
+				
+				for(int i=0;i<infor.length;i++  )
+				{
+					if((ChessGrid)obj == infor[i])
+					{
+						inTheRange = true;
+					}
+					
+					i++;
+				}	*/			
+				if(inTheRange)//if in the MovableRange
+				{
+					System.out.println("move OR eat");
+				    this.moveChess(selectGrid , (ChessGrid) obj);
+					clickStap = 0;
+				}
+				else
+				{
+					//cancel MovableRange
+					System.out.println("cancel");
+					clickStap = 0;
+				}
+			}
+			else if(clickStap == 0)
+			{
+				if( ccg != null ) //ClickChess
+				{				
+					if( ccg.getOwner().getState() == 1  )
+					{
+						//print MovableRange
+						System.out.println("select");
+						selectGrid = (ChessGrid) obj;
+						clickStap++;
+					}
+					else
+					{
+						System.out.println("noselect");
+						//cancel MovableRange
+						clickStap = 0;
+					}
+				}				
+			}
+		}		
+    }
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -91,7 +146,5 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 }

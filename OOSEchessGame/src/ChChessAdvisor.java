@@ -7,7 +7,7 @@ public class ChChessAdvisor extends  ChineseChess{
 	}
 
 	@Override
-	public boolean[][] getMovableRange(ChessBoard boardInfor) {
+	public ChessGrid[] getMovableRange(ChessBoard boardInfor) {
 		// TODO Auto-generated method stub
 		return null;
 	}

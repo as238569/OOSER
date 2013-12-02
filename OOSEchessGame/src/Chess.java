@@ -1,22 +1,19 @@
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
 import java.util.ArrayList;
 
-abstract public class Chess extends JButton {
+abstract public class Chess extends JLabel {
 	
 	private String chessType;
 	private Player owner;
-	private int myX;
-	private int myY;
 	
 	Chess(String chessType,Player owner){
 	
 		this.chessType =  chessType;
 		this.owner = owner;
-		this.setContentAreaFilled(false);//³z©ú«ö¶s
-	   // this.setBorderPainted(false); //³z©ú«ö¶s®Ø
 	}
 	
 	public String getChessType(){
@@ -24,9 +21,9 @@ abstract public class Chess extends JButton {
 		return chessType;		
 	}
 	
-	public String getChessOwner(){
+	public Player getOwner(){
 		
-		return owner.getName();		
+		return owner;		
 	}
 
 	
@@ -37,5 +34,7 @@ abstract public class Chess extends JButton {
 		g.drawImage( chessImg, 0, 0 ,null);
 		g.drawString(getChessType(), 24, 34);
     }
+		
+
 	
 }

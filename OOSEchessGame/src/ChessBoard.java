@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.GroupLayout.Alignment;
 
-abstract public class ChessBoard extends JPanel implements MouseListener {
+abstract public class ChessBoard extends JPanel implements MouseListener{
 	
 
 	private ChessGrid[][] board;
@@ -17,7 +17,7 @@ abstract public class ChessBoard extends JPanel implements MouseListener {
 		this.maxX = maxX;
 		this.maxY = maxY;
 		
-		setLayout(new GridLayout(10, 9, 0, 0));
+		setLayout(new GridLayout(maxY, maxX, 0, 0));
 		
 		
 		board = new ChessGrid[maxY][maxX];		
@@ -26,12 +26,11 @@ abstract public class ChessBoard extends JPanel implements MouseListener {
 		{
 			for(int x=0;x<maxX;x++)
 			{	
-				board[y][x] = new ChessGrid();
-				board[y][x].setPreferredSize(new Dimension(50,50));
+				board[y][x] = new ChessGrid(this);
 				add(board[y][x]);
 			}
 		}
-
+		addMouseListener(this);	
 	}
 	
 	public Chess getChess(int axisX ,int axisY){		
@@ -42,22 +41,20 @@ abstract public class ChessBoard extends JPanel implements MouseListener {
 	public void setChess(int axisX ,int axisY ,Chess c){
 		
 		board[axisY][axisX].setChess(c);	
-		/*c.setSize(this.getSize());
-		c.setBounds(axisX*60,axisY*60,60,60);*/
 	}
 	
 	public void removeChess(int axisX ,int axisY){
-		this.remove(board[axisY][axisX].getChess());
+		
 		board[axisY][axisX].removeChess();		
 	}
 	
-	 public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) {
 		 
 		 super.paintComponent(g);		 
 		 Image boardImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("ChChessBroad.jpg"));			 
 		 g.drawImage(boardImg, 0, 0, null);
-	 }
-	 
+	}
+
 	public String getTotalInfo(){
 		
 		String boardInfo = new String();
@@ -75,7 +72,8 @@ abstract public class ChessBoard extends JPanel implements MouseListener {
 
 
 		return boardInfo;
-	}
+	}	
+
 
 	abstract public void newGameFactory(Player p1 ,Player p2);
 }

@@ -1,5 +1,5 @@
 
 public interface IBoardForMovChess {
-
-	public  void  moveChess( int oldAxisX , int oldAxisY, int newAxisX ,int newAxisY);
+	
+	public  void  moveChess(ChessGrid oldGrid, ChessGrid newGrid);
 }

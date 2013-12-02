@@ -1,4 +1,4 @@
 
 public interface IMovableChess {
-	public boolean[][] getMovableRange(ChessBoard boardInfor);
+	public ChessGrid[] getMovableRange(ChessBoard boardInfor);
 }
