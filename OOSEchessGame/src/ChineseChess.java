@@ -14,10 +14,6 @@ public abstract class ChineseChess extends Chess implements IMovableChess{
 	    	 	          
 	}	
 	
-	public ChessGrid[] getMovableRange(ChessBoard boardInfor){
-		return null;
-		
-	}
-
+	abstract public ChessGrid[] getMovableRange(ChessBoard boardInfor);
 
 }

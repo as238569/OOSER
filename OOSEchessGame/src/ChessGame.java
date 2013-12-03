@@ -63,26 +63,26 @@ public class ChessGame extends JFrame implements MouseListener{
 		setTitle("GUIdemo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 730);
-		
-		JPanel panel = new JPanel();
+		setLayout(null);
+		/*JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		panel.setLayout(null);*/
 		
 		chessBoard = new ChChessBoard(this);
 		chessBoard.setBounds(354, 53, 526, 578);
-		panel.add(chessBoard);
+		add(chessBoard);
 		
 		rdbtnRedSide = new JRadioButton("red side",true);
 		rdbtnRedSide.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbtnRedSide.setEnabled(false);
 		rdbtnRedSide.setBounds(799, 23, 109, 23);
-		panel.add(rdbtnRedSide);
+		add(rdbtnRedSide);
 		
 		rdbtnBlackSide = new JRadioButton("black side",false);	
 		rdbtnBlackSide.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbtnBlackSide.setEnabled(false);
 		rdbtnBlackSide.setBounds(354, 640, 109, 23);
-		panel.add(rdbtnBlackSide);
+		add(rdbtnBlackSide);
 		
 		p1 = new Player("123",1);
 		p2 = new Player("321",0);

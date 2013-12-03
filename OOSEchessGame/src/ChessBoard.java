@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.GroupLayout.Alignment;
 
-abstract public class ChessBoard extends JPanel /* implements MouseListener*/{
+abstract public class ChessBoard extends JPanel {
 	
 
 	private ChessGrid[][] board;
