@@ -7,17 +7,13 @@ import java.awt.event.*;
 public class ChessGrid extends JButton{
 
 	private Chess whoOn;	
-	private int x;
-	private int y;
 	
-	ChessGrid(MouseListener game,int x, int y){		
+	ChessGrid(ChessBoard board){		
 		
-		this.x=x;
-		this.y=y;
 		setLayout(null);//Layout for Chess
 		this.setContentAreaFilled(false);//透明按鈕
 	    this.setBorderPainted(false); //透明按鈕框		
-		addMouseListener(game);
+		addMouseListener(board);
 	}
 	
 	public Chess getChess(){		
@@ -36,17 +32,12 @@ public class ChessGrid extends JButton{
 		
 		if(whoOn != null)
 		{
-			
+			System.out.println("removeChess");
 			remove(whoOn);
 			this.repaint(); //remove後並不會馬上反映薪畫面於按鈕上 ,需移到按鈕上方才能刷新,因此這裡直接要求刷新
 			whoOn = null;
 		}
 	}
-    public void setRangeInfor(boolean b){		
-		
-    	this.setBorderPainted(b);
-    	this.repaint();
-	}	
 
 	public String getChessType(){		
 		

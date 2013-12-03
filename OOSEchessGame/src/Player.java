@@ -7,11 +7,7 @@ public class Player {
 	
 	Player(String name){
 		this.Pname = name;
-		state = 0 ;
-	}
-	Player(String name ,int state){
-		this.Pname = name;
-		this.state = state  ;
+		state = 1 ;
 	}
 	
 	public void setName(String Pname){

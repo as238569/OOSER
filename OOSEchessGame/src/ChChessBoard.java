@@ -3,9 +3,13 @@ import java.awt.event.MouseListener;
 
 
 public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
-
-	public ChChessBoard(ChessGame cg){
-		super(9,10,cg);			
+	
+	
+	int clickStap ;
+	ChessGrid selectGrid;
+	
+	public ChChessBoard(){
+		super(9,10);			
 	}	
 	
 	public void moveChess(ChessGrid oldGrid, ChessGrid newGrid ){		
@@ -59,4 +63,88 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 		
 		
 	}
+	public void mouseClicked(MouseEvent e) {//主要事件 程序
+		
+		Object obj = e.getSource();
+		System.out.println("Click");
+		
+		if(obj instanceof ChessGrid)
+		{		
+			
+			ChineseChess ccg = (ChineseChess) ((ChessGrid) obj).getChess();
+			
+			if( clickStap == 1 )
+			{
+				boolean inTheRange = true; // if relly work set true
+				
+			 /* ChessGrid infor[] = ccg.getMovableRange(this);
+				
+				for(int i=0;i<infor.length;i++  )
+				{
+					if((ChessGrid)obj == infor[i])
+					{
+						inTheRange = true;
+					}
+					
+					i++;
+				}	*/			
+				if(inTheRange)//if in the MovableRange
+				{
+					System.out.println("move OR eat");
+				    this.moveChess(selectGrid , (ChessGrid) obj);
+					clickStap = 0;
+				}
+				else
+				{
+					//cancel MovableRange
+					System.out.println("cancel");
+					clickStap = 0;
+				}
+			}
+			else if(clickStap == 0)
+			{
+				if( ccg != null ) //ClickChess
+				{				
+					if( ccg.getOwner().getState() == 1  )
+					{
+						//print MovableRange
+						System.out.println("select");
+						selectGrid = (ChessGrid) obj;
+						clickStap++;
+					}
+					else
+					{
+						System.out.println("noselect");
+						//cancel MovableRange
+						clickStap = 0;
+					}
+				}				
+			}
+		}		
+    }
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

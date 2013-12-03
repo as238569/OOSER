@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.GroupLayout.Alignment;
 
-abstract public class ChessBoard extends JPanel /* implements MouseListener*/{
+abstract public class ChessBoard extends JPanel implements MouseListener{
 	
 
 	private ChessGrid[][] board;
@@ -12,7 +12,7 @@ abstract public class ChessBoard extends JPanel /* implements MouseListener*/{
 
 	
 	
-	ChessBoard(int maxX,int maxY,ChessGame game){
+	ChessBoard(int maxX,int maxY){
 		
 		this.maxX = maxX;
 		this.maxY = maxY;
@@ -26,33 +26,18 @@ abstract public class ChessBoard extends JPanel /* implements MouseListener*/{
 		{
 			for(int x=0;x<maxX;x++)
 			{	
-				board[y][x] = new ChessGrid(game,x,y);
+				board[y][x] = new ChessGrid(this);
 				add(board[y][x]);
 			}
 		}
-		addMouseListener(game);	
+		addMouseListener(this);	
 	}
 	
- 	public ChessGrid[][] getBoard(){		
+	public Chess getChess(int axisX ,int axisY){		
 		
-		return board;
+		return board[axisY][axisX].getChess();
 	}
-    
- 	public ChessGrid getChessGrid(int axisX ,int axisY){		
-		
-		return board[axisY][axisX];
-	}
- 	
-    public int getMaxX(){		
-		
-		return maxX;
-	}
-    
-    public int getMaxY(){		
-		
-		return maxY;
-	}
-    
+	
 	public void setChess(int axisX ,int axisY ,Chess c){
 		
 		board[axisY][axisX].setChess(c);	
@@ -63,17 +48,6 @@ abstract public class ChessBoard extends JPanel /* implements MouseListener*/{
 		board[axisY][axisX].removeChess();		
 	}
 	
-    public void removeRangeInfor(){
-		
-    	for(int y=0;y<maxY;y++)
-		{
-			for(int x=0;x<maxX;x++)
-			{	
-				board[y][x].setRangeInfor(false);
-			}
-		}		
-	}
-    
 	public void paintComponent(Graphics g) {
 		 
 		 super.paintComponent(g);		 
