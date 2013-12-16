@@ -64,10 +64,7 @@ public class ChessGame extends JFrame implements MouseListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 730);
 		setLayout(null);
-		/*JPanel panel = new JPanel();
-		getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);*/
-		
+
 		chessBoard = new ChChessBoard(this);
 		chessBoard.setBounds(354, 53, 526, 578);
 		add(chessBoard);

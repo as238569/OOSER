@@ -77,7 +77,7 @@ abstract public class ChessBoard extends JPanel {
 	public void paintComponent(Graphics g) {
 		 
 		 super.paintComponent(g);		 
-		 Image boardImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("ChChessBroad.jpg"));			 
+		 Image boardImg = Toolkit.getDefaultToolkit().getImage("ChChessBroad.jpg");			 
 		 g.drawImage(boardImg, 0, 0, null);
 	}
 

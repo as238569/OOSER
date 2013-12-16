@@ -30,7 +30,7 @@ abstract public class Chess extends JLabel {
 	public void paintComponent(Graphics g) {	
 		
 		super.paintComponent(g);
-		Image chessImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("ChChess.png"));	
+		Image chessImg = Toolkit.getDefaultToolkit().getImage("ChChess.png");	
 		g.drawImage( chessImg, 0, 0 ,null);
 		g.drawString(getChessType(), 24, 34);
     }
