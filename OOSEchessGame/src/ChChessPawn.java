@@ -30,7 +30,71 @@ public class ChChessPawn extends  ChineseChess{
 			}			
 		}
 		/*-------------------------------------------------------------------------------------*/
+		int movX = 0;
+		int movY = 0;
 		
+		if(super.getChessType() =="r"){
+			movY = 1;
+		}else{
+			movY = -1;
+		}
+		if(Crossriver(thisY)){
+			System.out.println("YES");
+			movY = setSide();
+			if((thisX + movX <= maxX && thisX + movX >= 0) && (thisY + movY <= maxY && thisY + movY >= 0)){
+				if(board[thisY+movY][thisX].getChess() != null ){
+					if(board[thisY+movY][thisX+movX].getChess().getOwner() != this.getOwner()){
+						canMovTo[l] = board[thisY+movY][thisX+movX];
+						l++;
+		 	       }
+				}else{
+					canMovTo[l] = board[thisY+movY][thisX+movX];
+					l++;	
+				}
+				
+			}
+		
+			movY = 0;
+			movX = 1;
+			if((thisX + movX <= maxX && thisX + movX >= 0) && (thisY + movY <= maxY && thisY + movY >= 0)){
+				if(board[thisY+movY][thisX+movX].getChess() != null ){
+					if(board[thisY+movY][thisX+movX].getChess().getOwner() != this.getOwner()){
+						canMovTo[l] = board[thisY+movY][thisX+movX];
+						l++;
+		 	       }
+				}else{
+					canMovTo[l] = board[thisY+movY][thisX+movX];
+					l++;	
+				}
+				
+			}
+			movX = -1;
+			if((thisX + movX <= maxX && thisX + movX >= 0) && (thisY + movY <= maxY && thisY + movY >= 0)){
+				if(board[thisY+movY][thisX+movX].getChess() != null ){
+					if(board[thisY+movY][thisX+movX].getChess().getOwner() != this.getOwner()){
+						canMovTo[l] = board[thisY+movY][thisX+movX];
+						l++;
+		 	       }
+				}else{
+					canMovTo[l] = board[thisY+movY][thisX+movX];
+					l++;	
+				}
+				
+			}
+		}else{
+			if((thisX + movX <= maxX && thisX + movX >= 0) && (thisY + movY <= maxY && thisY + movY >= 0)){
+				if(board[thisY+movY][thisX].getChess() != null ){
+					if(board[thisY+movY][thisX+movX].getChess().getOwner() != this.getOwner()){
+						canMovTo[l] = board[thisY+movY][thisX+movX];
+						l++;
+		 	       }
+				}else{
+					canMovTo[l] = board[thisY+movY][thisX+movX];
+					l++;	
+				}
+				
+			}
+		}
 		
 		return canMovTo;
 	}
@@ -43,6 +107,24 @@ public class ChChessPawn extends  ChineseChess{
 			return "§L";
 		}else{
 			return "¨ò";
+		}
+	}
+	public boolean Crossriver(int y){
+		
+		if(super.getChessType() =="r")
+		{
+			if (y > 4) return true;
+			else return false;
+		}else{
+			if (y <= 4) return true;
+			else return false;
+		}	
+	}
+	public int setSide(){
+		if(super.getChessType() =="r"){
+			return 1;
+		}else{
+			return -1;
 		}
 	}
 
