@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.GroupLayout.Alignment;
 
-abstract public class ChessBoard extends JPanel /* implements MouseListener*/{
+abstract public class ChessBoard extends JPanel {
 	
 
 	private ChessGrid[][] board;
@@ -77,7 +77,7 @@ abstract public class ChessBoard extends JPanel /* implements MouseListener*/{
 	public void paintComponent(Graphics g) {
 		 
 		 super.paintComponent(g);		 
-		 Image boardImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("ChChessBroad.jpg"));			 
+		 Image boardImg = Toolkit.getDefaultToolkit().getImage("ChChessBroad.jpg");			 
 		 g.drawImage(boardImg, 0, 0, null);
 	}
 
