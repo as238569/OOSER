@@ -36,11 +36,11 @@ public class ChessGameJFrame extends JFrame  implements  Observer{
     
 	    
 	    /*--------------------------------------------------*/
-	    MarkerJLabelR = new RoundMarkerJLabel(ObservableChessGame.getPlayer1());
+	    MarkerJLabelR = new RoundMarkerJLabel(ObservableChessGame.getPlayer1(),"Up");
 	    MarkerJLabelR.setBounds(785, 11, 70, 70);
 	    getContentPane().add(MarkerJLabelR);
 	    
-	    MarkerJLabelB = new RoundMarkerJLabel(ObservableChessGame.getPlayer2());
+	    MarkerJLabelB = new RoundMarkerJLabel(ObservableChessGame.getPlayer2(),"Down");
 	    MarkerJLabelB.setBounds(477, 781, 70, 70);
 	    getContentPane().add(MarkerJLabelB);
 	    

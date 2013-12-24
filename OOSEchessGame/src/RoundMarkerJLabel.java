@@ -9,11 +9,12 @@ import javax.swing.JLabel;
 public class RoundMarkerJLabel extends JLabel implements Observer{
 	
 	private Player ObservablePlayer;
-	
+	private String MarkerSide;
 
-	RoundMarkerJLabel(Player ObservablePlayer){
+	RoundMarkerJLabel(Player ObservablePlayer, String MarkerSide){
 		this.ObservablePlayer = ObservablePlayer;
-		ObservablePlayer.addObserver(this);		
+		ObservablePlayer.addObserver(this);			
+		this.MarkerSide = MarkerSide;
 	}
 	
 	@Override
@@ -28,10 +29,16 @@ public class RoundMarkerJLabel extends JLabel implements Observer{
 		// TODO Auto-generated method stub
 		
 		super.paintComponent(g);
-		Image RoundMarkerImg = Toolkit.getDefaultToolkit().getImage(ObservablePlayer.getSide().toUpperCase()+"_RoundMarker.png");
+		Image RoundMarkerImg ;
+		
 		if(ObservablePlayer.getState()==1){
 			
+			RoundMarkerImg = Toolkit.getDefaultToolkit().getImage(MarkerSide+"_RoundMarker.png");			
 			g.drawImage( RoundMarkerImg, 0,  0, getWidth(), getHeight(),null);
+		}else{
+			
+			RoundMarkerImg =  Toolkit.getDefaultToolkit().getImage("Wait_RoundMarker.png");			
+			g.drawImage( Toolkit.getDefaultToolkit().getImage("Wait_RoundMarker.png"), 0,  0, getWidth(), getHeight(),null);
 		}
     }
 }

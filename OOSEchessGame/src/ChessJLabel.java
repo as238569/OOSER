@@ -42,14 +42,22 @@ public class ChessJLabel extends JLabel implements Observer{
 		Image chessImg;
 		
 		if(ObservableChess instanceof TwDarkChess && ((TwDarkChess) ObservableChess).getDark() == true){
-			
-			    chessImg = Toolkit.getDefaultToolkit().getImage("ChessDark.png");
-		}else{
+			if(((TwDarkChess) ObservableChess).getDark() == true){
+				
+				chessImg = Toolkit.getDefaultToolkit().getImage("ChessDark.png");
+			}else{
+				
+				chessImg = Toolkit.getDefaultToolkit().getImage(ObservableChess.getChessType().toUpperCase()+"_"+ObservableChess.getClass().getName()+".png");
+			}			
+		}else if(ObservableChess instanceof ChineseChess){
 		
 			chessImg = Toolkit.getDefaultToolkit().getImage(ObservableChess.getChessType().toUpperCase()+"_"+ObservableChess.getClass().getName()+".png");
+		}else{
+			chessImg = Toolkit.getDefaultToolkit().getImage("Erroe.png");
 		}
 		
 		g.drawImage( chessImg, 0,  0, getWidth(), getHeight(),null);
+		
 		if(select == true){
 			g.drawImage( selectImg, 0, 0 ,getWidth(),getHeight(),null);
 		}

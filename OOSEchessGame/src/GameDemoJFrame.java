@@ -35,7 +35,7 @@ public class GameDemoJFrame extends JFrame{
 		 gameJButton[1] = new JButton("·t´Ñ¹CÀ¸");
 		 gameJButton[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ChessGame Game = new ChessGame(new Player("Red  Test1","r"),new Player("Black  Test2","b"),new TwDarkChessBoard());
+				ChessGame Game = new ChessGame(new Player("Test1",1),new Player("Test2",0),new TwDarkChessBoard());
 				ChessGameJFrame frame = new TwDarkChessGameJFrame("ChessGameGUI",Game);
 				
 				TwDarkChessGameController TGC = new TwDarkChessGameController(Game,frame);					

@@ -7,9 +7,9 @@ public class Player extends Observable{
 	private int state;
 		
 	
-	Player(String name){
+	Player(String name,int state){
 		this.Pname = name;
-		state = 0 ;
+		this.state = state ;
 	}
 	Player(String name ,String side){
 		this.Pname = name;
@@ -33,6 +33,10 @@ public class Player extends Observable{
 	public String getSide(){
 		return side;
 	}	
+	public void setSide(String side){
+		
+		this.side = side;
+	}	 
 	
 	public void setState(int state){
 		this.state = state;

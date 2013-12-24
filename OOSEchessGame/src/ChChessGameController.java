@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class ChChessGameController implements ActionListener{
-
+	
 	private ChessGame gameModel;
 	private ChessGameJFrame gameView;
 
