@@ -32,7 +32,7 @@ public class TwDarkChessCannon extends  TwDarkChess{
 			//東方移動判斷
 			x = thisX+1;
 			y = thisY;	
-			if(x <= maxX){										//移動
+			if(x < maxX){										//移動
 				if(board[y][x].getChess() == null){
 					canMovTo[l] = board[y][x];
 					l++;
