@@ -39,7 +39,8 @@ public class TwDarkChessKing extends  TwDarkChess{
 	    	    l++;
 			}
 			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0){
+				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0 
+				    && ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 					
 					canMovTo[l] = board[y][x];
 		    	    l++;
@@ -58,7 +59,8 @@ public class TwDarkChessKing extends  TwDarkChess{
 	    	    l++;
 			}
 			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0){
+				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0
+					&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 					
 					canMovTo[l] = board[y][x];
 		    	    l++;
@@ -78,7 +80,8 @@ public class TwDarkChessKing extends  TwDarkChess{
 	    	    l++;
 			}
 			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0){
+				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0
+					&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 					
 					canMovTo[l] = board[y][x];
 		    	    l++;
@@ -98,7 +101,8 @@ public class TwDarkChessKing extends  TwDarkChess{
 	    	    l++;
 			}
 			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0){
+				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() && ((TwDarkChess)board[y][x].getChess()).getRank() != 0
+					&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 					
 					canMovTo[l] = board[y][x];
 		    	    l++;
