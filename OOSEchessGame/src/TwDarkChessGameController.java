@@ -78,8 +78,13 @@ public class TwDarkChessGameController implements ActionListener {
 					{
 
 
+						System.out.println("move OR eat");
+						selectGrid.getChess().setSelect(false);	
+						((TwDarkChessBoard) (gameModel.getChessBoard())).moveChess(selectGrid, clickGrid);
+						gameModel.turnRound();
+						
 						/*--------------------------check  for win--------------------------------*/
-						if(((TwDarkChessBoard)gameModel.getChessBoard()).checkDieAll(gameModel.getNotRoundPlayer()) == true){
+						if(((TwDarkChessBoard)gameModel.getChessBoard()).checkDieAll(gameModel.getRoundPlayer()) == true){
 						    JFrame gameOverJFrame = new JFrame ("Game is over!"); 			
 							TextField tf = new TextField("Player: "+gameModel.getNotRoundPlayer().getName()+"  Win!");
 							if(clickChess.getChessType() == "b"){
@@ -102,10 +107,6 @@ public class TwDarkChessGameController implements ActionListener {
 						}
 
 						/*-------------------------------------------------------------------------*/
-						System.out.println("move OR eat");
-						selectGrid.getChess().setSelect(false);	
-						((TwDarkChessBoard) (gameModel.getChessBoard())).moveChess(selectGrid, clickGrid);
-						gameModel.turnRound();
 					} else {
 							// cancel MovableRange
 							System.out.println("cancel");
