@@ -1,3 +1,7 @@
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+
 
 public class ChChessGameJFrame extends ChessGameJFrame{
 
@@ -7,8 +11,14 @@ public class ChChessGameJFrame extends ChessGameJFrame{
 		
 		boardJPanel =new ChessBoardJPanel(ObservableChessGame.getChessBoard());
   	    boardJPanel.setBounds(343, 90, 612, 680);
-	    getContentPane().add(boardJPanel);		
-		
+	    getContentPane().add(boardJPanel);	
+	    
+	    //¤å¦r®Ø
+	    JTextArea record = new JTextArea();
+    	JScrollPane scroll = new JScrollPane(record);
+    	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+    	getContentPane().add(scroll);
+    	scroll.setBounds(1000, 90, 200, 680);
 	}
 
 }
