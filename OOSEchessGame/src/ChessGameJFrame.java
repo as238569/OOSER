@@ -1,20 +1,14 @@
 import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.ScrollPane;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 
 public class ChessGameJFrame extends JFrame  implements  Observer{
@@ -32,8 +26,9 @@ public class ChessGameJFrame extends JFrame  implements  Observer{
 		getContentPane().setLayout(null);			
 		
 		this.ObservableChessGame = ObservableChessGame;
-    	ObservableChessGame.addObserver(this);    	
-    
+    	ObservableChessGame.addObserver(this);  
+    	
+    	
 	    
 	    /*--------------------------------------------------*/
 	    MarkerJLabelR = new RoundMarkerJLabel(ObservableChessGame.getPlayer1(),"Up");
