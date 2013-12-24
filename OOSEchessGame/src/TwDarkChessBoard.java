@@ -16,72 +16,93 @@ public class TwDarkChessBoard extends ChessBoard implements IBoardForMovChess{
 		newGrid.setChess(c);
 	}
 	
+	public void bindOwner(Player p, String bindChessType) {
+		
+		for(int y=0;y<super.getMaxY();y++){			
+			
+			for(int x=0;x<super.getMaxX();x++){		
+				
+				if(super.getChessGrid(x ,y).getChess().getChessType().equals(bindChessType)){
+			
+					super.getChessGrid(x ,y).getChess().setOwner(p);
+				}
+			}
+		}	    
+	}
+	public boolean checkDieAll(Player p){
+		
+		boolean dieAll = true;
+		
+		for(int y=0;y<super.getMaxY();y++){
+			
+			for(int x=0;x<super.getMaxX();x++){	
+				
+				if(super.getChessGrid(x ,y).getChess() != null && super.getChessGrid(x ,y).getChess().getOwner().equals(p)){			
+					 dieAll = false;
+				}
+			}
+		}	    
+		
+		
+		return dieAll;
+	}
 
 	@Override
 	public void newGameFactory(Player p1, Player p2) {
 		
-		int[] x = new int[getMaxX()];
-		for(int i = 0; i < getMaxX(); i++){
-		    x[i] = i;
+		int maxX = getMaxX();
+		int maxY = getMaxY();
+		
+		int[] list = new int[ maxX * maxY];
+		for(int i = 0; i < maxX * maxY; i++){
+			list[i] = i;
 		}		
-		int[] y = new int[super.getMaxY()];
-		for(int i = 0; i < super.getMaxY(); i++){
-		    y[i] = i;
-		}
 		
 		/*------------------------set random-------------------------*/
 		Random random = new Random();
-		for(int i = 0; i < getMaxX(); i++){
-			 
-		    int p = random.nextInt(getMaxX());
-		    int tmp = x[i];
-	   	    x[i] =x[p];
-		    x[p] = tmp;
+		for(int i = 0; i < maxX * maxY; i++){			 
+		    int p = random.nextInt(maxX * maxY);
+		    int tmp = list[i];
+		    list[i] =list[p];
+		    list[p] = tmp;
         }
-		for(int i = 0; i < getMaxY(); i++){
-			 
-		    int p = random.nextInt(getMaxY());
-		    int tmp = y[i];
-	   	    y[i] =y[p];
-		    y[p] = tmp;
-         }
 		/*------------------------------------------------------------*/
-				
-		
-	    super.setChess(x[0],y[0],new TwDarkChessRook("r")       );
-		super.setChess(x[1],y[0],new TwDarkChessKnight("r")     );	
-		super.setChess(x[2],y[0],new TwDarkChessElephant("r")   );
-		super.setChess(x[3],y[0],new TwDarkChessAdvisor("r")    );
-		super.setChess(x[4],y[0],new TwDarkChessKing("r")       );
-		super.setChess(x[5],y[0],new TwDarkChessAdvisor("r")    );
-		super.setChess(x[6],y[0],new TwDarkChessElephant("r")   );
-		super.setChess(x[7],y[0],new TwDarkChessKnight("r")     );
-		super.setChess(x[0],y[1],new TwDarkChessRook("r")       );		
-		super.setChess(x[1],y[1],new TwDarkChessCannon("r")     );
-		super.setChess(x[2],y[1],new TwDarkChessCannon("r")     );
-		super.setChess(x[3],y[1],new TwDarkChessPawn("r")    );
-		super.setChess(x[4],y[1],new TwDarkChessPawn("r")    );
-		super.setChess(x[5],y[1],new TwDarkChessPawn("r")    );
-		super.setChess(x[6],y[1],new TwDarkChessPawn("r")    );
-		super.setChess(x[7],y[1],new TwDarkChessPawn("r")    );		
+
+
+	    super.setChess(list[0]%maxX,list[0]/maxX,new TwDarkChessRook("r")       );
+		super.setChess(list[1]%maxX,list[1]/maxX,new TwDarkChessKnight("r")     );	
+		super.setChess(list[2]%maxX,list[2]/maxX,new TwDarkChessElephant("r")   );
+		super.setChess(list[3]%maxX,list[3]/maxX,new TwDarkChessAdvisor("r")    );
+		super.setChess(list[4]%maxX,list[4]/maxX,new TwDarkChessKing("r")       );
+		super.setChess(list[5]%maxX,list[5]/maxX,new TwDarkChessAdvisor("r")    );
+		super.setChess(list[6]%maxX,list[6]/maxX,new TwDarkChessElephant("r")   );
+		super.setChess(list[7]%maxX,list[7]/maxX,new TwDarkChessKnight("r")     );
+		super.setChess(list[8]%maxX,list[8]/maxX,new TwDarkChessRook("r")       );		
+		super.setChess(list[9]%maxX,list[9]/maxX,new TwDarkChessCannon("r")     );
+		super.setChess(list[10]%maxX,list[10]/maxX,new TwDarkChessCannon("r")     );
+		super.setChess(list[11]%maxX,list[11]/maxX,new TwDarkChessPawn("r")    );
+		super.setChess(list[12]%maxX,list[12]/maxX,new TwDarkChessPawn("r")    );
+		super.setChess(list[13]%maxX,list[13]/maxX,new TwDarkChessPawn("r")    );
+		super.setChess(list[14]%maxX,list[14]/maxX,new TwDarkChessPawn("r")    );
+		super.setChess(list[15]%maxX,list[15]/maxX,new TwDarkChessPawn("r")    );		
 
 		
-		super.setChess(x[0],y[2],new TwDarkChessRook("b")       );
-		super.setChess(x[1],y[2],new TwDarkChessKnight("b")     );
-		super.setChess(x[2],y[2],new TwDarkChessElephant("b")   );
-		super.setChess(x[3],y[2],new TwDarkChessAdvisor("b")    );
-		super.setChess(x[4],y[2],new TwDarkChessKing("b")       );
-		super.setChess(x[5],y[2],new TwDarkChessAdvisor("b")    );
-		super.setChess(x[6],y[2],new TwDarkChessElephant("b")   );
-		super.setChess(x[7],y[2],new TwDarkChessKnight("b")     );
-		super.setChess(x[0],y[3],new TwDarkChessRook("b")       );
-		super.setChess(x[1],y[3],new TwDarkChessCannon("b")     );
-		super.setChess(x[2],y[3],new TwDarkChessCannon("b")     );
-		super.setChess(x[3],y[3],new TwDarkChessPawn("b")    );
-		super.setChess(x[4],y[3],new TwDarkChessPawn("b")    );
-		super.setChess(x[5],y[3],new TwDarkChessPawn("b")    );
-		super.setChess(x[6],y[3],new TwDarkChessPawn("b")    );
-		super.setChess(x[7],y[3],new TwDarkChessPawn("b")    );
+		super.setChess(list[16]%maxX,list[16]/maxX,new TwDarkChessRook("b")       );
+		super.setChess(list[17]%maxX,list[17]/maxX,new TwDarkChessKnight("b")     );
+		super.setChess(list[18]%maxX,list[18]/maxX,new TwDarkChessElephant("b")   );
+		super.setChess(list[19]%maxX,list[19]/maxX,new TwDarkChessAdvisor("b")    );
+		super.setChess(list[20]%maxX,list[20]/maxX,new TwDarkChessKing("b")       );
+		super.setChess(list[21]%maxX,list[21]/maxX,new TwDarkChessAdvisor("b")    );
+		super.setChess(list[22]%maxX,list[22]/maxX,new TwDarkChessElephant("b")   );
+		super.setChess(list[23]%maxX,list[23]/maxX,new TwDarkChessKnight("b")     );
+		super.setChess(list[24]%maxX,list[24]/maxX,new TwDarkChessRook("b")       );
+		super.setChess(list[25]%maxX,list[25]/maxX,new TwDarkChessCannon("b")     );
+		super.setChess(list[26]%maxX,list[26]/maxX,new TwDarkChessCannon("b")     );
+		super.setChess(list[27]%maxX,list[27]/maxX,new TwDarkChessPawn("b")    );
+		super.setChess(list[28]%maxX,list[28]/maxX,new TwDarkChessPawn("b")    );
+		super.setChess(list[29]%maxX,list[29]/maxX,new TwDarkChessPawn("b")    );
+		super.setChess(list[30]%maxX,list[30]/maxX,new TwDarkChessPawn("b")    );
+		super.setChess(list[31]%maxX,list[31]/maxX,new TwDarkChessPawn("b")    );
 		
 		
 	}

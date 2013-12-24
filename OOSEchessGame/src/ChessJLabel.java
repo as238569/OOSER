@@ -24,7 +24,7 @@ public class ChessJLabel extends JLabel implements Observer{
 	public void update(Observable obs, Object arg) {		
 		// TODO Auto-generated method stub		
 		
-		if( (boolean)arg == true ){			
+		if( arg != null && (boolean)arg == true ){			
 			select = true;
 		}else{
 			select = false;
@@ -41,7 +41,7 @@ public class ChessJLabel extends JLabel implements Observer{
 		Image selectImg = Toolkit.getDefaultToolkit().getImage("Select.png"); 
 		Image chessImg;
 		
-		if(ObservableChess instanceof TwDarkChess && ((TwDarkChess) ObservableChess).getDark() == true){
+		if(ObservableChess instanceof TwDarkChess){
 			if(((TwDarkChess) ObservableChess).getDark() == true){
 				
 				chessImg = Toolkit.getDefaultToolkit().getImage("ChessDark.png");
@@ -49,9 +49,11 @@ public class ChessJLabel extends JLabel implements Observer{
 				
 				chessImg = Toolkit.getDefaultToolkit().getImage(ObservableChess.getChessType().toUpperCase()+"_"+ObservableChess.getClass().getName()+".png");
 			}			
+			
 		}else if(ObservableChess instanceof ChineseChess){
 		
 			chessImg = Toolkit.getDefaultToolkit().getImage(ObservableChess.getChessType().toUpperCase()+"_"+ObservableChess.getClass().getName()+".png");
+			
 		}else{
 			chessImg = Toolkit.getDefaultToolkit().getImage("Erroe.png");
 		}

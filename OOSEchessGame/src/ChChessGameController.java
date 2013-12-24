@@ -33,20 +33,20 @@ public class ChChessGameController implements ActionListener{
  		Object obj = e.getSource();
  		
  		if(obj instanceof ChessGridJButton){
- 			ChessGridJButton  cgb = (ChessGridJButton)obj;  
- 			ChessGrid cg = (ChessGrid)cgb.getObservable();
- 			ChineseChess cc = (ChineseChess)cg.getChess();  //®³ºX¤l
+ 			ChessGridJButton  clickGridJButton = (ChessGridJButton)obj;  
+ 			ChessGrid clickGrid = (ChessGrid)clickGridJButton.getObservable();
+ 			Chess clickChess = (ChineseChess)clickGrid.getChess();  //®³ºX¤l
  			
  			if( clickStap == 1 )
  			{
+ 				/*-----------------check the new click whether in range or not---------------*/
  				ChessGrid rangeInfo[] = ((ChineseChess)selectGrid.getChess()).getMovableRange(gameModel.getChessBoard());
  				boolean inTheRange = false; 
  				
- 				/*-----------------check the new click whether in range or not---------------*/
  				int i=0;		
  			    while(rangeInfo[i] != null){
 
- 				    	if(cg == rangeInfo[i])
+ 				    	if(clickGrid == rangeInfo[i])
  				      	{
  				    		inTheRange = true;
  				    	}	
@@ -57,10 +57,10 @@ public class ChChessGameController implements ActionListener{
  				if(inTheRange)//if new click in the MovableRange
  				{
  					/*------------------------------king die---------------------------------------*/
- 					if(cc instanceof ChChessKing){
+ 					if(clickChess instanceof ChChessKing){
  						JFrame gameOverJFrame = new JFrame ("Game is over!"); 			
- 						TextField tf = new TextField("Player: "+gameModel.getRound().getName()+"  Win!");
- 						if(cc.getChessType() == "b"){
+ 						TextField tf = new TextField("Player: "+gameModel.getRoundPlayer().getName()+"  Win!");
+ 						if(clickChess.getChessType() == "b"){
  						    tf.setForeground(Color.red);
  						}
  						JButton bt = new JButton("OK");
@@ -83,20 +83,18 @@ public class ChChessGameController implements ActionListener{
  					
  					System.out.println("move OR eat");
  					selectGrid.getChess().setSelect(false);
- 					((ChChessBoard)(gameModel.getChessBoard())).moveChess(selectGrid , cg);
+ 					((ChChessBoard)(gameModel.getChessBoard())).moveChess(selectGrid , clickGrid);
  					gameModel.turnRound();
  					
  					
  					/*--------------------------check-for check--------------------------------*/
- 					rangeInfo = ((ChineseChess)cg.getChess()).getMovableRange(gameModel.getChessBoard());
- 					boolean isCheck = false; 
+ 					rangeInfo = ((ChineseChess)clickGrid.getChess()).getMovableRange(gameModel.getChessBoard());
  					
  	 				i=0;		
  	 			    while(rangeInfo[i] != null){
 
  	 				    	if(rangeInfo[i].getChess() instanceof ChChessKing )
  	 				      	{
- 	 				    		isCheck = true;
  	 				    		JFrame CheckJFrame = new JFrame ("Check!!"); 						
  	 	 						TextField tf = new TextField("Check!!");
 
@@ -114,23 +112,23 @@ public class ChChessGameController implements ActionListener{
  					/*-------------------------------------------------------------------------*/
 					
  				}else{
- 					//cancel MovableRange
  					System.out.println("cancel");
  					selectGrid.getChess().setSelect(false);
  				}
  				
+ 				//cancel MovableRange
 				(gameView.getChessBoardJPanel()).removeRangeInfo();
 				selectGrid = null;
 				clickStap = 0;
  			}
  			else if(clickStap == 0)
  			{
- 				if( cc != null ) //ClickChess
+ 				if( clickChess != null ) //ClickChess
  				{				
- 					if( cc.getOwner().getState() == 1  )
+ 					if( clickChess.getOwner().getState() == 1  )
  					{
  						System.out.println("select");
- 						selectGrid = cg;
+ 						selectGrid = clickGrid;
  						selectGrid.getChess().setSelect(true);
  						clickStap++;
  						

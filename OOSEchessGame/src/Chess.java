@@ -14,7 +14,7 @@ abstract public class Chess  extends Observable {
 	
 	Chess(String chessType){
 		
-		this.chessType =  chessType;
+		this.chessType = chessType;
 		select=false;
 	}
 	
@@ -28,8 +28,7 @@ abstract public class Chess  extends Observable {
 	public String getChessType(){
 		
 		return chessType;		
-	}
-	
+	}	
 	public Player getOwner(){
 		
 		return owner;		

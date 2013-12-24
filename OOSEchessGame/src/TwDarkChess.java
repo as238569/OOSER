@@ -9,9 +9,6 @@ public abstract class TwDarkChess extends Chess implements IMovableChess{
 		dark = true;
 	}
 	
-	public void OpenChess(){
-		dark = false;
-	}
 	public void setRank(int rank){
 		this.rank=rank;
 	}
@@ -22,6 +19,12 @@ public abstract class TwDarkChess extends Chess implements IMovableChess{
 	
 	public int getRank(){
 		return rank;
+	}
+	
+	public void setOpen(){
+		dark = false;
+		setChanged();
+		notifyObservers();		
 	}
 	
 	public ChessGrid[] getMovableRange(ChessBoard boardInfor){
@@ -58,7 +61,7 @@ public abstract class TwDarkChess extends Chess implements IMovableChess{
 				canMovTo[l] = board[y][x];
 	    	    l++;
 			}
-			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false && ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank()){
 					
 					canMovTo[l] = board[y][x];
@@ -77,7 +80,7 @@ public abstract class TwDarkChess extends Chess implements IMovableChess{
 				canMovTo[l] = board[y][x];
 	    	    l++;
 			}
-			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false && ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank()){
 					
 					canMovTo[l] = board[y][x];
@@ -97,7 +100,7 @@ public abstract class TwDarkChess extends Chess implements IMovableChess{
 				canMovTo[l] = board[y][x];
 	    	    l++;
 			}
-			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false && ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank()){
 					
 					canMovTo[l] = board[y][x];
@@ -117,7 +120,7 @@ public abstract class TwDarkChess extends Chess implements IMovableChess{
 				canMovTo[l] = board[y][x];
 	    	    l++;
 			}
-			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+			else if(((TwDarkChess)board[y][x].getChess()).getDark() == false && ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
 				if(((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank()){
 					
 					canMovTo[l] = board[y][x];

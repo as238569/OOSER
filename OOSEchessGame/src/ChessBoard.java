@@ -11,10 +11,7 @@ abstract public class ChessBoard extends Observable {
 	
 
 	private ChessGrid[][] board;
-	private int maxX,maxY;
-	protected Image boardImg;
-
-	
+	private int maxX,maxY;	
 	
 	ChessBoard(int maxX,int maxY){
 		

@@ -51,21 +51,28 @@ public class ChessGame extends Observable{
 		setChanged();
 		notifyObservers();
 	}
-	
-    public Player getRound() {
-    	
-		if(p1.getState() == 1){
-			return p1;
-		}
-		else{
-			return p2;
-		}
-	}
-    
+	    
     public ChessBoard getChessBoard() {
 		
 	    return chessBoard;
 	}
+    
+    public Player getRoundPlayer() {
+    	
+    	if(p1.getState() == 1){
+    		return p1;
+    	}else{
+    		return p2;
+    	}		
+	}
+    public Player getNotRoundPlayer() {
+    	
+    	if(p1.getState() == 0){
+    		return p1;
+    	}else{
+    		return p2;
+    	}		
+	} 
     
     public Player getPlayer1() {
 		
