@@ -1,7 +1,9 @@
+import java.util.Observable;
 
-public class Player {
+public class Player extends Observable{
 	
 	private String Pname;
+	private String side;
 	private int state;
 		
 	
@@ -9,9 +11,15 @@ public class Player {
 		this.Pname = name;
 		state = 0 ;
 	}
-	Player(String name ,int state){
+	Player(String name ,String side){
 		this.Pname = name;
-		this.state = state  ;
+		this.side = side;
+		
+		if(side == "r"){
+			this.state = 1;
+		}else{
+			this.state = 0;
+		}
 	}
 	
 	public void setName(String Pname){
@@ -22,10 +30,14 @@ public class Player {
 	public String getName(){
 		return Pname;
 	}
-	
+	public String getSide(){
+		return side;
+	}	
 	
 	public void setState(int state){
 		this.state = state;
+		setChanged();
+		notifyObservers();
 	}
 	
 	public int getState(){

@@ -116,14 +116,14 @@ public class ChChessRook extends  ChineseChess{
 		return canMovTo;
 	}
 	
-	@Override
-	public String getChessType(){
-		
-		if(super.getChessType() =="r")
-		{
-			return "俥";
-		}else{
-			return "車";
-		}
-	}
+//	@Override
+//	public String getChessType(){
+//		
+//		if(super.getChessType() =="r")
+//		{
+//			return "俥";
+//		}else{
+//			return "車";
+//		}
+//	}
 }

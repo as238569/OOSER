@@ -193,20 +193,19 @@ public class ChChessKnight extends  ChineseChess{
 
 				
 				
-				
 		
 		return canMovTo;
 	}
 	
-	@Override
-	public String getChessType(){
-		
-		if(super.getChessType() =="r")
-		{
-			return "ØX";
-		}else{
-			return "°¨";
-		}
-	}
+//	@Override
+//	public String getChessType(){
+//		
+//		if(super.getChessType() =="r")
+//		{
+//			return "ØX";
+//		}else{
+//			return "°¨";
+//		}
+//	}
 
 }

@@ -105,14 +105,14 @@ public class ChChessElephant extends  ChineseChess{
 		return canMovTo;
 	}
 
-	@Override
-	public String getChessType(){
-		
-		if(super.getChessType() =="r")
-		{
-			return "相";
-		}else{
-			return "象";
-		}
-	}
+//	@Override
+//	public String getChessType(){
+//		
+//		if(super.getChessType() =="r")
+//		{
+//			return "相";
+//		}else{
+//			return "象";
+//		}
+//	}
 }

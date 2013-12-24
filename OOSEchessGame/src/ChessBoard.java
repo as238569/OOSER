@@ -1,9 +1,13 @@
 import java.awt.*;
+
 import javax.swing.*;
+
 import java.awt.event.*;
+import java.util.Observable;
+
 import javax.swing.GroupLayout.Alignment;
 
-abstract public class ChessBoard extends JPanel {
+abstract public class ChessBoard extends Observable {
 	
 
 	private ChessGrid[][] board;
@@ -12,13 +16,10 @@ abstract public class ChessBoard extends JPanel {
 
 	
 	
-	ChessBoard(int maxX,int maxY,ChessGame game){
+	ChessBoard(int maxX,int maxY){
 		
 		this.maxX = maxX;
-		this.maxY = maxY;
-		
-		setLayout(new GridLayout(maxY, maxX, 0, 0));
-		
+		this.maxY = maxY;		
 		
 		board = new ChessGrid[maxY][maxX];		
 		
@@ -26,11 +27,9 @@ abstract public class ChessBoard extends JPanel {
 		{
 			for(int x=0;x<maxX;x++)
 			{	
-				board[y][x] = new ChessGrid(game,x,y);
-				add(board[y][x]);
+				board[y][x] = new ChessGrid(x,y);
 			}
 		}
-		addMouseListener(game);	
 	}
 	
  	public ChessGrid[][] getBoard(){		
@@ -63,43 +62,6 @@ abstract public class ChessBoard extends JPanel {
 		board[axisY][axisX].removeChess();		
 	}
 	
-    public void removeRangeInfor(){
-		
-    	for(int y=0;y<maxY;y++)
-		{
-			for(int x=0;x<maxX;x++)
-			{	
-				board[y][x].setRangeInfor(false);
-			}
-		}		
-	}
-    
-	public void paintComponent(Graphics g) {
-		 
-		 super.paintComponent(g);		 
-		 Image boardImg = Toolkit.getDefaultToolkit().getImage("ChChessBroad.jpg");			 
-		 g.drawImage(boardImg, 0, 0, null);
-	}
-
-	public String getTotalInfo(){
-		
-		String boardInfo = new String();
-				
-		
-		for(int y=0;y<maxY;y++)
-		{
-			boardInfo = boardInfo+"\n";
-			for(int x=0;x<maxX;x++)
-			{
-				
-				boardInfo = boardInfo + board[y][x].getChessType();
-			}
-		}
-
-
-		return boardInfo;
-	}	
-
 
 	abstract public void newGameFactory(Player p1 ,Player p2);
 }

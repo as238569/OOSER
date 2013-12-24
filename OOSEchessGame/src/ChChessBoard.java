@@ -2,13 +2,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 
-public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
+public class ChChessBoard extends ChessBoard implements IBoardForMovChess{
 
-	public ChChessBoard(ChessGame cg){
-		super(9,10,cg);			
+	public ChChessBoard(){
+		super(9,10);			
 	}	
 	
-	public void moveChess(ChessGrid oldGrid, ChessGrid newGrid ){		
+	public void moveChess(ChessGrid oldGrid, ChessGrid newGrid){		
 		
         Chess c = oldGrid.getChess();
         oldGrid.removeChess();
@@ -28,8 +28,7 @@ public class ChChessBoard extends ChessBoard  implements IBoardForMovChess{
 		super.setChess(5,0,new ChChessAdvisor("r",p1)    );
 		super.setChess(6,0,new ChChessElephant("r",p1)   );
 		super.setChess(7,0,new ChChessKnight("r",p1)     );
-		super.setChess(8,0,new ChChessRook("r",p1)       );
-		
+		super.setChess(8,0,new ChChessRook("r",p1)       );		
 		super.setChess(1,2,new ChChessCannon("r",p1)     );
 		super.setChess(7,2,new ChChessCannon("r",p1)     );
 		super.setChess(0,3,new ChChessPawn("r",p1)    );

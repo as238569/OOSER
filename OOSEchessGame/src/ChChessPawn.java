@@ -39,7 +39,6 @@ public class ChChessPawn extends  ChineseChess{
 			movY = -1;
 		}
 		if(Crossriver(thisY)){
-			System.out.println("YES");
 			movY = setSide();
 			if((thisX + movX <= maxX && thisX + movX >= 0) && (thisY + movY <= maxY && thisY + movY >= 0)){
 				if(board[thisY+movY][thisX].getChess() != null ){
@@ -98,17 +97,17 @@ public class ChChessPawn extends  ChineseChess{
 		
 		return canMovTo;
 	}
-	
-	@Override
-	public String getChessType(){
-		
-		if(super.getChessType() =="r")
-		{
-			return "§L";
-		}else{
-			return "¨ò";
-		}
-	}
+//	
+//	@Override
+//	public String getChessType(){
+//		
+//		if(super.getChessType() =="r")
+//		{
+//			return "§L";
+//		}else{
+//			return "¨ò";
+//		}
+//	}
 	public boolean Crossriver(int y){
 		
 		if(super.getChessType() =="r")

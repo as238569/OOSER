@@ -96,15 +96,15 @@ public class ChChessAdvisor extends  ChineseChess{
 		return canMovTo;
 	}
 	
-	@Override
-	public String getChessType(){
-		
-		if(super.getChessType() =="r")
-		{
-			return "¥K";
-		}else{
-			return "¤h";
-		}
-	}
+//	@Override
+//	public String getChessType(){
+//		
+//		if(super.getChessType() =="r")
+//		{
+//			return "¥K";
+//		}else{
+//			return "¤h";
+//		}
+//	}
 
 }

@@ -110,15 +110,15 @@ public class ChChessCannon extends  ChineseChess{
 		return canMovTo;
 	}
 	
-	@Override
-	public String getChessType(){
-		
-		if(super.getChessType() =="r")
-		{
-			return "¬¶";
-		}else{
-			return "¥]";
-		}
-	}
+//	@Override
+//	public String getChessType(){
+//		
+//		if(super.getChessType() =="r")
+//		{
+//			return "¬¶";
+//		}else{
+//			return "¥]";
+//		}
+//	}
 
 }

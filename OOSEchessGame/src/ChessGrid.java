@@ -3,21 +3,18 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
+import java.util.Observable;
 
-public class ChessGrid extends JButton{
+public class ChessGrid extends Observable{
 
 	private Chess whoOn;	
 	private int x;
 	private int y;
 	
-	ChessGrid(MouseListener game,int x, int y){		
+	ChessGrid(int x, int y){		
 		
-		this.x=x;
-		this.y=y;
-		setLayout(null);//Layout for Chess
-		this.setContentAreaFilled(false);//透明按鈕
-	    this.setBorderPainted(false); //透明按鈕框		
-		addMouseListener(game);
+		this.x = x;
+		this.y = y;
 	}
 	
 	public Chess getChess(){		
@@ -25,34 +22,39 @@ public class ChessGrid extends JButton{
 		return whoOn;		
 	}	
 	
+
+	public int getX(){		
+		
+		return x;		
+	}	
+
+	public int getY(){		
+		
+		return y;		
+	}	
 	public void setChess(Chess c){
 		
 		whoOn = c;		
-		add(c);
-		c.setBounds(0 ,0 ,999,999); //在整個ChessGrid以填滿的方式蓋上Chess
+		setChanged(); 
+        notifyObservers(whoOn); 
 	}
 	
 	public void removeChess(){
 		
-		if(whoOn != null)
-		{
+		if( whoOn != null){
 			
-			remove(whoOn);
-			this.repaint(); //remove後並不會馬上反映薪畫面於按鈕上 ,需移到按鈕上方才能刷新,因此這裡直接要求刷新
-			whoOn = null;
+	        whoOn = null;
+	        setChanged(); 
+	        notifyObservers(whoOn); 			
 		}
 	}
-    public void setRangeInfor(boolean b){		
-		
-    	this.setBorderPainted(b);
-    	this.repaint();
-	}	
-
+	
+	
 	public String getChessType(){		
 		
 		if(whoOn == null)
 		{
-			return "口";
+			return "-";
 			
 		}else{
 			

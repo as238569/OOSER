@@ -113,15 +113,15 @@ public class ChChessKing extends  ChineseChess {
 		return canMovTo;
 	}
 	
-	@Override
-	public String getChessType(){
-		
-		if(super.getChessType() =="r")
-		{
-			return "«Ó";
-		}else{
-			return "±N";
-		}
-	}
+//	@Override
+//	public String getChessType(){
+//		
+//		if(super.getChessType() =="r")
+//		{
+//			return "«Ó";
+//		}else{
+//			return "±N";
+//		}
+//	}
 	
 }
