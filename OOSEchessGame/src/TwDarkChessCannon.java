@@ -27,104 +27,106 @@ public class TwDarkChessCannon extends  TwDarkChess{
 				}			
 			}
 			/*-------------------------------------------------------------------------------------*/
-			int x;
-			int y;
-			//東方移動判斷
-			x = thisX+1;
-			y = thisY;	
-			if(x < maxX){										//移動
-				if(board[y][x].getChess() == null){
-					canMovTo[l] = board[y][x];
-					l++;
-				}
-			}			
-			if((x < maxX) &&(board[thisY][x].getChess() !=null))//東方吃點判斷	
-			{
-				for(x=x+1;(x < maxX) &&(board[thisY][x].getChess() == null) ;x++)
+			if(this.getDark()){
+				
+			}else{
+				int x;
+				int y;
+				//東方移動判斷
+				x = thisX+1;
+				y = thisY;	
+				if(x < maxX){										//移動
+					if(board[y][x].getChess() == null){
+						canMovTo[l] = board[y][x];
+						l++;
+					}
+				}			
+				if((x < maxX) &&(board[thisY][x].getChess() !=null))//東方吃點判斷	
 				{
+					for(x=x+1;(x < maxX) &&(board[thisY][x].getChess() == null) ;x++)
+					{
+					}
+					if((x < maxX) &&(board[y][x].getChess() != null)&&(board[y][x].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
+					{
+					    canMovTo[l] = board[thisY][x];
+					    l++;
+					}
 				}
-				if((x < maxX) &&(board[thisY][x].getChess() != null)&&(board[thisY][x].getChess().getOwner() != this.getOwner()))
+				
+				//西方移動判斷
+				x = thisX-1;
+				y = thisY ;		
+				if(x >= 0)
 				{
-				    canMovTo[l] = board[thisY][x];
-				    l++;
+					if(board[y][x].getChess() == null){
+						
+						canMovTo[l] = board[y][x];
+			    	    l++;
+					}
+				}
+				if((x >= 0) &&(board[thisY][x].getChess() !=null))//西方吃點判斷	
+				{
+					for(x=x-1;(x >= 0) &&(board[thisY][x].getChess() == null) ;x--)
+					{
+		
+					}
+					if((x >= 0) &&(board[thisY][x].getChess() != null)&&(board[thisY][x].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
+					{
+					    canMovTo[l] = board[thisY][x];
+					    l++;
+					}
+				}
+		
+				//南方移動判斷
+				
+				x = thisX;
+				y = thisY+1;		
+				if(y < maxY)
+				{
+					if(board[y][x].getChess() == null){
+						
+						canMovTo[l] = board[y][x];
+			    	    l++;
+					}
+				}
+				if((y < maxY) &&(board[y][thisX].getChess() !=null))//南方吃點判斷	
+				{
+					for(y=y+1;(y < maxY) &&(board[y][thisX].getChess() == null) ;y++)
+					{
+						
+					}
+					if((y < maxY) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
+					{
+					    canMovTo[l] = board[y][thisX];
+					    l++;
+					}
+				}
+		
+				//北方移動判斷	
+				
+				x = thisX;
+				y = thisY-1;		
+				if(y >= 0)
+				{
+					if(board[y][x].getChess() == null){
+						
+						canMovTo[l] = board[y][x];
+			    	    l++;
+					}
+				}
+				if((y >= 0) &&(board[y][thisX].getChess() !=null))//北方吃點判斷	
+				{
+					for(y=y-1;(y >= 0) &&(board[y][thisX].getChess() == null) ;y--)
+					{
+		
+					}
+					if((y >= 0) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
+					{
+					    canMovTo[l] = board[y][thisX];
+					    l++;
+					}
 				}
 			}
-			
-			//西方移動判斷
-			x = thisX-1;
-			y = thisY ;		
-			if(x >= 0)
-			{
-				if(board[y][x].getChess() == null){
-					
-					canMovTo[l] = board[y][x];
-		    	    l++;
-				}
-			}
-			if((x >= 0) &&(board[thisY][x].getChess() !=null))//西方吃點判斷	
-			{
-				for(x=x-1;(x >= 0) &&(board[thisY][x].getChess() == null) ;x--)
-				{
-	
-				}
-				if((x >= 0) &&(board[thisY][x].getChess() != null)&&(board[thisY][x].getChess().getOwner() != this.getOwner()))
-				{
-				    canMovTo[l] = board[thisY][x];
-				    l++;
-				}
-			}
-	
-			//南方移動判斷
-			
-			x = thisX;
-			y = thisY+1;		
-			if(y < maxY)
-			{
-				if(board[y][x].getChess() == null){
-					
-					canMovTo[l] = board[y][x];
-		    	    l++;
-				}
-			}
-			if((y < maxY) &&(board[y][thisX].getChess() !=null))//南方吃點判斷	
-			{
-				for(y=y+1;(y < maxY) &&(board[y][thisX].getChess() == null) ;y++)
-				{
-					
-				}
-				if((y < maxY) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner()))
-				{
-				    canMovTo[l] = board[y][thisX];
-				    l++;
-				}
-			}
-	
-			//北方移動判斷	
-			
-			x = thisX;
-			y = thisY-1;		
-			if(y >= 0)
-			{
-				if(board[y][x].getChess() == null){
-					
-					canMovTo[l] = board[y][x];
-		    	    l++;
-				}
-			}
-			if((y >= 0) &&(board[y][thisX].getChess() !=null))//北方吃點判斷	
-			{
-				for(y=y-1;(y >= 0) &&(board[y][thisX].getChess() == null) ;y--)
-				{
-	
-				}
-				if((y >= 0) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner()))
-				{
-				    canMovTo[l] = board[y][thisX];
-				    l++;
-				}
-			}
-	
-			
 			return canMovTo;
 		}
 }

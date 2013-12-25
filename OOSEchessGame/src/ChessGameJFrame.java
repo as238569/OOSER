@@ -19,6 +19,7 @@ public class ChessGameJFrame extends JFrame  implements  Observer{
 	private JLabel nameJLabelB;
 	private RoundMarkerJLabel MarkerJLabelR;
 	private RoundMarkerJLabel MarkerJLabelB;
+	private  JTextArea record;
 	
      public ChessGameJFrame(String title,ChessGame ObservableChessGame) {
     	super(title); 
@@ -56,11 +57,13 @@ public class ChessGameJFrame extends JFrame  implements  Observer{
 	    getContentPane().add(nameJLabelB);
 	    
 	    //¤å¦r®Ø
-	    JTextArea record = new JTextArea();
+	    record = new JTextArea();
     	JScrollPane scroll = new JScrollPane(record);
     	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
     	getContentPane().add(scroll);
+    	record.setEditable(false);
     	scroll.setBounds(1100, 90, 200, 680);
+    	
 		/*----------------------------------------------------*/		
 	}     
      
@@ -76,6 +79,14 @@ public class ChessGameJFrame extends JFrame  implements  Observer{
  	public void update(Observable obs, Object arg) {
  		// TODO Auto-generated method stub
  		
+// 		if (arg instanceof Chess) { 	//setChess
+//			record.append("ChessGridObserver: ChessGrid"+((ChessGrid)obs).getX()+","+((ChessGrid)obs).getY()+" changed to " + ((Chess)arg).getChessType() + "\n");
+//        }else if(arg == null){        	                //removeChess	
+//			record.append("ChessGridObserver: ChessGrid"+((ChessGrid)obs).getX()+","+((ChessGrid)obs).getY()+" changed to " + "-" + "\n");
+//		}
  		repaint();
+ 	}
+ 	public void recordAppend(String str){
+ 		record.append(str);
  	}
 }
