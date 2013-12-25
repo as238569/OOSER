@@ -60,7 +60,10 @@ public class ChessGameJFrame extends JFrame  implements  Observer{
     	JScrollPane scroll = new JScrollPane(record);
     	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
     	getContentPane().add(scroll);
+    	record.setEditable(false);
+    	record.append("123");
     	scroll.setBounds(1100, 90, 200, 680);
+    	
 		/*----------------------------------------------------*/		
 	}     
      
