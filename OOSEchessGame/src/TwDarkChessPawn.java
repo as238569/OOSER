@@ -27,90 +27,90 @@ public class TwDarkChessPawn extends  TwDarkChess{
 				}			
 			}
 			/*-------------------------------------------------------------------------------------*/
-			
-			//東方移動判斷
-			int x = thisX+1;
-			int y = thisY ;		
-			if(x < maxX)
-			{
-				if(board[y][x].getChess() == null){
-					
-					canMovTo[l] = board[y][x];
-		    	    l++;
-				}
-				else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-					if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
-							&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+			if(this.getDark()){
+			}else{
+				//東方移動判斷
+				int x = thisX+1;
+				int y = thisY ;		
+				if(x < maxX)
+				{
+					if(board[y][x].getChess() == null){
 						
 						canMovTo[l] = board[y][x];
 			    	    l++;
 					}
+					else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+						if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
+								&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+							
+							canMovTo[l] = board[y][x];
+				    	    l++;
+						}
+					}
 				}
-			}
-			
-			//西方移動判斷
-			x = thisX-1;
-			y = thisY ;		
-			if(x >= 0)
-			{
-				if(board[y][x].getChess() == null){
-					
-					canMovTo[l] = board[y][x];
-		    	    l++;
-				}
-				else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-					if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
-							&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+				
+				//西方移動判斷
+				x = thisX-1;
+				y = thisY ;		
+				if(x >= 0)
+				{
+					if(board[y][x].getChess() == null){
 						
 						canMovTo[l] = board[y][x];
 			    	    l++;
 					}
+					else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+						if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
+								&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+							
+							canMovTo[l] = board[y][x];
+				    	    l++;
+						}
+					}
 				}
-			}
-	
-			//南方移動判斷
-			
-			x = thisX;
-			y = thisY+1;		
-			if(y < maxY)
-			{
-				if(board[y][x].getChess() == null){
-					
-					canMovTo[l] = board[y][x];
-		    	    l++;
-				}
-				else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-					if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
-							&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+		
+				//南方移動判斷
+				
+				x = thisX;
+				y = thisY+1;		
+				if(y < maxY)
+				{
+					if(board[y][x].getChess() == null){
 						
 						canMovTo[l] = board[y][x];
 			    	    l++;
 					}
+					else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+						if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
+								&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+							
+							canMovTo[l] = board[y][x];
+				    	    l++;
+						}
+					}
 				}
-			}
-	
-			//北方移動判斷	
-			
-			x = thisX;
-			y = thisY-1;		
-			if(y >= 0)
-			{
-				if(board[y][x].getChess() == null){
-					
-					canMovTo[l] = board[y][x];
-		    	    l++;
-				}
-				else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
-					if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
-							&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+		
+				//北方移動判斷	
+				
+				x = thisX;
+				y = thisY-1;		
+				if(y >= 0)
+				{
+					if(board[y][x].getChess() == null){
 						
 						canMovTo[l] = board[y][x];
 			    	    l++;
 					}
+					else if(((TwDarkChess)board[y][x].getChess()).getDark() == false){
+						if((((TwDarkChess)board[y][x].getChess()).getRank() <= ((TwDarkChess)board[thisY][thisX].getChess()).getRank() || ((TwDarkChess)board[y][x].getChess()).getRank() == 6)
+								&& ((TwDarkChess)board[y][x].getChess()).getOwner() != this.getOwner()){
+							
+							canMovTo[l] = board[y][x];
+				    	    l++;
+						}
+					}
 				}
 			}
-	
-			
 			return canMovTo;
 		}
 }
