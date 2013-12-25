@@ -64,7 +64,8 @@ public class ChessJLabel extends JLabel implements Observer{
 			g.drawImage( selectImg, 0, 0 ,getWidth(),getHeight(),null);
 		}
 		
-		
+		this.setVisible(false);
+		this.setVisible(true);	
     }
 			
 }

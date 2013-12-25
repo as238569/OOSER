@@ -40,5 +40,8 @@ public class RoundMarkerJLabel extends JLabel implements Observer{
 			RoundMarkerImg =  Toolkit.getDefaultToolkit().getImage("Wait_RoundMarker.png");			
 			g.drawImage( Toolkit.getDefaultToolkit().getImage("Wait_RoundMarker.png"), 0,  0, getWidth(), getHeight(),null);
 		}
+		
+		 this.setVisible(false);
+		 this.setVisible(true);
     }
 }

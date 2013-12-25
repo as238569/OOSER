@@ -87,6 +87,10 @@ import javax.swing.JPanel;
 		 super.paintComponent(g);		 
 		 Image boardImg = Toolkit.getDefaultToolkit().getImage(ObservableChessBoard.getClass().getName()+".jpg");			 
 		 g.drawImage(boardImg, 0, 0 ,getWidth(),getHeight(),null);
+		 
+		 
+		 this.setVisible(false);
+		 this.setVisible(true);
 	}
 	
 }

@@ -3,7 +3,6 @@ import java.util.Observable;
 public class Player extends Observable{
 	
 	private String name;
-	//private String side;
 	private int state;
 		
 	
@@ -13,7 +12,6 @@ public class Player extends Observable{
 	}
 	Player(String name ,String side){
 		this.name = name;
-		//this.side = side;
 		
 		if(side == "r"){
 			this.state = 1;
@@ -30,14 +28,7 @@ public class Player extends Observable{
 	public String getName(){
 		return name;
 	}
-//	public String getSide(){
-//		return side;
-//	}	
-//	public void setSide(String side){
-//		
-//		this.side = side;
-//	}	 
-//	
+	
 	public void setState(int state){
 		this.state = state;
 		setChanged();

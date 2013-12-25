@@ -42,14 +42,14 @@ public class ChessGameJFrame extends JFrame  implements  Observer{
 	    getContentPane().add(MarkerJLabelB);
 	    
 	    //玩家姓名
-	    nameJLabelR = new JLabel( ObservableChessGame.getPlayer1().getName());
+	    nameJLabelR = new JLabel("Player: " + ObservableChessGame.getPlayer1().getName());
 	    nameJLabelR.setBounds(890, 25, 100, 20);
 	    nameJLabelR.setBackground(Color.WHITE);
 	    nameJLabelR.setOpaque(true);
 	    getContentPane().add( nameJLabelR);
 	    
 	    //玩家姓名
-	    nameJLabelB = new JLabel(ObservableChessGame.getPlayer2().getName());
+	    nameJLabelB = new JLabel("Player: " + ObservableChessGame.getPlayer2().getName());
 	    nameJLabelB.setBounds(343, 791, 100, 20);
 	    nameJLabelB.setBackground(Color.WHITE);
 	    nameJLabelB.setOpaque(true);
