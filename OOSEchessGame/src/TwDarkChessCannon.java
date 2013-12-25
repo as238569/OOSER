@@ -43,7 +43,7 @@ public class TwDarkChessCannon extends  TwDarkChess{
 				for(x=x+1;(x < maxX) &&(board[thisY][x].getChess() == null) ;x++)
 				{
 				}
-				if((x < maxX) &&(board[thisY][x].getChess() != null)&&(board[thisY][x].getChess().getOwner() != this.getOwner()))
+				if((x < maxX) &&(board[y][x].getChess() != null)&&(board[y][x].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
 				{
 				    canMovTo[l] = board[thisY][x];
 				    l++;
@@ -67,7 +67,7 @@ public class TwDarkChessCannon extends  TwDarkChess{
 				{
 	
 				}
-				if((x >= 0) &&(board[thisY][x].getChess() != null)&&(board[thisY][x].getChess().getOwner() != this.getOwner()))
+				if((x >= 0) &&(board[thisY][x].getChess() != null)&&(board[thisY][x].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
 				{
 				    canMovTo[l] = board[thisY][x];
 				    l++;
@@ -92,7 +92,7 @@ public class TwDarkChessCannon extends  TwDarkChess{
 				{
 					
 				}
-				if((y < maxY) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner()))
+				if((y < maxY) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
 				{
 				    canMovTo[l] = board[y][thisX];
 				    l++;
@@ -117,7 +117,7 @@ public class TwDarkChessCannon extends  TwDarkChess{
 				{
 	
 				}
-				if((y >= 0) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner()))
+				if((y >= 0) &&(board[y][thisX].getChess()!= null)&&(board[y][thisX].getChess().getOwner() != this.getOwner())&&(((TwDarkChess)board[y][x].getChess()).getDark() == false))
 				{
 				    canMovTo[l] = board[y][thisX];
 				    l++;
