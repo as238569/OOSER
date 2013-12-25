@@ -79,6 +79,7 @@ public class TwDarkChessGameController implements ActionListener {
 
 
 						System.out.println("move OR eat");
+						gameView.recordAppend("move OR eat\n");
 						selectGrid.getChess().setSelect(false);	
 						((TwDarkChessBoard) (gameModel.getChessBoard())).moveChess(selectGrid, clickGrid);
 						gameModel.turnRound();
@@ -110,6 +111,7 @@ public class TwDarkChessGameController implements ActionListener {
 					} else {
 							// cancel MovableRange
 							System.out.println("cancel");
+							gameView.recordAppend("cancel\n");
 							selectGrid.getChess().setSelect(false);	
 					}		
 					(gameView.getChessBoardJPanel()).removeRangeInfo();
@@ -123,6 +125,7 @@ public class TwDarkChessGameController implements ActionListener {
 				{
 					if (((TwDarkChess) clickChess).getDark() == true || clickChess.getOwner().getState() == 1) {
 						System.out.println("select");
+						gameView.recordAppend("select\n");
 						selectGrid = clickGrid;
 						selectGrid.getChess().setSelect(true);
 						clickStap++;
@@ -136,6 +139,7 @@ public class TwDarkChessGameController implements ActionListener {
 						
 					} else {
 						System.out.println("Not your Round !!");
+						gameView.recordAppend("Not your Round !!\n");
 						// cancel MovableRange
 						clickStap = 0;
 					}

@@ -82,6 +82,7 @@ public class ChChessGameController implements ActionListener{
  					/*-----------------------------------------------------------------------------*/
  					
  					System.out.println("move OR eat");
+ 					gameView.recordAppend("move OR eat\n");
  					selectGrid.getChess().setSelect(false);
  					((ChChessBoard)(gameModel.getChessBoard())).moveChess(selectGrid , clickGrid);
  					gameModel.turnRound();
@@ -113,6 +114,7 @@ public class ChChessGameController implements ActionListener{
 					
  				}else{
  					System.out.println("cancel");
+ 					gameView.recordAppend("cancel\n");
  					selectGrid.getChess().setSelect(false);
  				}
  				
@@ -128,6 +130,7 @@ public class ChChessGameController implements ActionListener{
  					if( clickChess.getOwner().getState() == 1  )
  					{
  						System.out.println("select");
+ 						gameView.recordAppend("select\n");
  						selectGrid = clickGrid;
  						selectGrid.getChess().setSelect(true);
  						clickStap++;
@@ -140,6 +143,7 @@ public class ChChessGameController implements ActionListener{
  					else
  					{
  						System.out.println("Not your Round !!");
+ 						gameView.recordAppend("Not your Round !!\n");
  						//cancel MovableRange
  						clickStap = 0;
  					}
